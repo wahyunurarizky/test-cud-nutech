@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='/css/main.css')
+    title LOGIN Nutech Test
+    <link rel="shortcut icon" type="image/png" href="/img/logo.png"/>
+
+  body.d-flex.text-center
+    form.form-login
+      img.mb-4(src=`/img/arzky.png` alt='' height='50')
+      h1.h3.mb-3.font-weight-normal Login Nutech Test
+      label.visually-hidden(for='username') username
+      input#username.form-control.mb-2.ip-3(type='text' placeholder='username cth: admin' required autofocus)
+      label.visually-hidden(for='password') Password
+      input#password.form-control.mb-2.ip-3(type='password' placeholder='password cth: 1234' required)
+      
+      button.btn.btn-lg.btn-primary.w-100(type='submit') Login
+
+    script(src='/js/bundle.js')

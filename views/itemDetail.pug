@@ -1,0 +1,57 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='/css/main.css')
+    title Nutech Test
+    <link rel="shortcut icon" type="image/png" href="/img/logo.png"/>
+
+  body
+    header.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+      a.navbar-brand.col-md-3.col-lg-2.me-0.px-3(href='/') ARZKY - Nutech Test
+      button.navbar-toggler.position-absolute.d-md-none.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+    .container-fluid
+      .row
+        nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+          .position-sticky.pt-3
+            ul.nav.flex-column
+              li.nav-item
+                a.nav-link.active(aria-current='page' href='/')
+                  span
+                  | Items
+              li.nav-item
+                a.nav-link.btn-logout
+                  span
+                  | LOGOUT
+                
+
+        .main.col-md-9.ms-sm-auto.col-lg-10.px-md-4
+          .row.text-center.my-4
+            .col
+              h1=item.name
+              img(src=`/img/items/${item.photo}` width="300")
+          .row.py-4
+            .col-md-4.text-center   
+              h2 Buy Price
+              p=item.buy_price
+            .col-md-4.text-center      
+              h2 Sell Price
+              p=item.sell_price
+            .col-md-4.text-center      
+              h2 Stock
+              p=item.stock
+                
+          
+        footer.text-center.py-3.bg-dark.text-white
+          p Copyright Wahyu Nur Arizky &copy 2021
+          p Test Nutech NodeJS
+          a.text-white(href='https://www.instagram.com/wahyunurarizky') Instagram
+          br
+          a.text-white(href='https://api.whatsapp.com/send/?phone=089532029873') Whatsapp
+          br
+          a.text-white(href='https://documenter.getpostman.com/view/9203738/Tzm6jv5z') Postman API
+
+    script(src='/js/bundle.js')

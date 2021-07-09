@@ -1,0 +1,14 @@
+// variables
+$primary: #415c02;
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+$dark: #415c02;
+
+// util
+$utilities: () !default;
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import 'style';
+@import 'admin';

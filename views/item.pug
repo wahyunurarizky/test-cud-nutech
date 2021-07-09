@@ -1,0 +1,134 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='/css/main.css')
+    title Nutech Test
+    <link rel="shortcut icon" type="image/png" href="/img/logo.png"/>
+
+  body
+    header.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+      a.navbar-brand.col-md-3.col-lg-2.me-0.px-3(href='/') ARZKY - Nutech Test
+      button.navbar-toggler.position-absolute.d-md-none.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+    .container-fluid
+      .row
+        nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+          .position-sticky.pt-3
+            ul.nav.flex-column
+              li.nav-item
+                a.nav-link.active(aria-current='page' href='/')
+                  span
+                  | Items
+              li.nav-item
+                a.nav-link.btn-logout
+                  span
+                  | LOGOUT
+                
+
+        main.col-md-9.ms-sm-auto.col-lg-10.px-md-4
+          .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            h1.h2=`CRUD Items (Barang)`
+          // Button trigger modal
+          button.mb-3.btn.btn-primary(type='button' data-bs-toggle='modal' data-bs-target='#modalCreate')
+            | add new item
+          .row
+            .col.text-center
+              table.table.table-striped.align-middle
+                thead
+                  tr
+                    th(scope='col') #
+                    th(scope='col') photo
+                    th(scope='col') item name
+                    th(scope='col') buy price
+                    th(scope='col') sell price
+                    th(scope='col') stock
+                    th(scope='col') action
+                tbody
+                  each item,i in items
+                    tr
+                      th(scope='row')= `${i+1}`
+                      td 
+                        img(src=`/img/items/${item.photo}` width='50')
+                      td=item.name 
+                      td=item.buy_price
+                      td=item.sell_price
+                      td=item.stock
+                      td
+                        a.detail-item(href=`/${item.slug}`)
+                          span.badge.bg-success.me-2 detail
+                        a.edit-item(href='#' data-bs-toggle="modal" data-bs-target="#modalUpdate" data-id=`${item.id}`)
+                          span.badge.bg-warning.me-2 edit
+                        a.delete-item(href='#' data-id=`${item.id}`)
+                          span.badge.bg-danger delete
+                
+          
+        footer.text-center.py-3.bg-dark.text-white
+          p Copyright Wahyu Nur Arizky &copy 2021
+          p Test Nutech NodeJS
+          a.text-white(href='https://www.instagram.com/wahyunurarizky') Instagram
+          br
+          a.text-white(href='https://api.whatsapp.com/send/?phone=089532029873') Whatsapp
+          br
+          a.text-white(href='https://documenter.getpostman.com/view/9203738/Tzm6jv5z') Postman API
+    // Modal
+    #modalCreate.modal.fade(tabindex='-1' aria-labelledby='modalCreateLabel' aria-hidden='true')
+      .modal-dialog.modal-dialog-scrollable
+        .modal-content
+          .modal-header
+            h5#modalCreateLabel.modal-title Create New Team
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+          .modal-body
+            form.form-add-item#formAdd
+              .mb-3
+                label.form-label(for='name') Name
+                input#name.form-control(type='text' autocomplete="off")
+              .mb-3  
+                label.form-label(for='photo') photo
+                input#photo.form-control(type='file' name='photo')              
+              .mb-3
+                label.form-label(for='buy_price') buy price
+                input#buy_price.form-control(type='number' autocomplete="off")
+              .mb-3
+                label.form-label(for='sell_price') sell price
+                input#sell_price.form-control(type='number' autocomplete="off")
+              .mb-3
+                label.form-label(for='stock') stock
+                input#stock.form-control(type='number' autocomplete="off")             
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
+            button.btn.btn-primary(type='submit' form="formAdd") Create
+    
+    #modalUpdate.modal.fade(tabindex='-1' aria-labelledby='modalDetail' aria-hidden='true')
+      .modal-dialog.modal-dialog-scrollable
+        .modal-content
+          .modal-header
+            h5#modalDetail.modal-title Edit Item
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+          .modal-body
+            form.form-edit-item#formUpdateItem
+              input#itemId(type="hidden")
+              
+              .mb-3
+                label.form-label(for='name_u') Name
+                input#name_u.form-control(type='text' autocomplete="off")
+              .mb-3  
+                label.form-label(for='photo_u') photo
+                <img src="" class="img-thumbnail img-photo mb-3" width="100" alt="">
+                input#photo_u.form-control(type='file' name='photo_u')              
+              .mb-3
+                label.form-label(for='buy_price_u') buy price
+                input#buy_price_u.form-control(type='number' autocomplete="off")
+              .mb-3
+                label.form-label(for='sell_price_u') sell price
+                input#sell_price_u.form-control(type='number' autocomplete="off")
+              .mb-3
+                label.form-label(for='stock_u') stock
+                input#stock_u.form-control(type='number' autocomplete="off")  
+              .mb-3 
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
+            button.btn.btn-primary(type='submit' form="formUpdateItem") Save changes
+    script(src='/js/bundle.js')
