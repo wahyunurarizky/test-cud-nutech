@@ -72,6 +72,7 @@ html(lang='en')
           br
           a.text-white(href='https://api.whatsapp.com/send/?phone=089532029873') Whatsapp
           br
+          p maaf belum sempat membuat pagination dan searching. namun saya sudah membuat API nya siap panggil di bawah ini
           a.text-white(href='https://documenter.getpostman.com/view/9203738/Tzm6jv5z') Postman API
     // Modal
     #modalCreate.modal.fade(tabindex='-1' aria-labelledby='modalCreateLabel' aria-hidden='true')
@@ -90,13 +91,13 @@ html(lang='en')
                 input#photo.form-control(type='file' name='photo')              
               .mb-3
                 label.form-label(for='buy_price') buy price
-                input#buy_price.form-control(type='number' autocomplete="off")
+                input#buy_price.form-control(type='text' autocomplete="off")
               .mb-3
                 label.form-label(for='sell_price') sell price
-                input#sell_price.form-control(type='number' autocomplete="off")
+                input#sell_price.form-control(type='text' autocomplete="off")
               .mb-3
                 label.form-label(for='stock') stock
-                input#stock.form-control(type='number' autocomplete="off")             
+                input#stock.form-control(type='text' autocomplete="off")             
           .modal-footer
             button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
             button.btn.btn-primary(type='submit' form="formAdd") Create
@@ -120,13 +121,13 @@ html(lang='en')
                 input#photo_u.form-control(type='file' name='photo_u')              
               .mb-3
                 label.form-label(for='buy_price_u') buy price
-                input#buy_price_u.form-control(type='number' autocomplete="off")
+                input#buy_price_u.form-control(type='text' autocomplete="off")
               .mb-3
                 label.form-label(for='sell_price_u') sell price
-                input#sell_price_u.form-control(type='number' autocomplete="off")
+                input#sell_price_u.form-control(type='text' autocomplete="off")
               .mb-3
                 label.form-label(for='stock_u') stock
-                input#stock_u.form-control(type='number' autocomplete="off")  
+                input#stock_u.form-control(type='text' autocomplete="off")  
               .mb-3 
           .modal-footer
             button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Close
