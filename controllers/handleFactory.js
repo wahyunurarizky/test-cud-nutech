@@ -68,15 +68,12 @@ exports.getOne = (Model, popOptions) =>
 
 exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {
-    let filter = {};
-    if (req.params.tourId) {
-      filter = { tour: req.params.tourId };
-    }
-    const features = new APIFeatures(Model.find(filter), req.query)
+    const features = new APIFeatures(Model.find(), req.query)
       .filter()
       .sort()
       .limit()
-      .paginate();
+      .paginate()
+      .search();
     const docs = await features.query;
     // const docs = await features.query.explain();
 

@@ -27,6 +27,7 @@ const itemSchema = new mongoose.Schema({
 });
 
 itemSchema.index({ name: 1 }, { unique: true });
+itemSchema.index({ '$**': 'text' });
 
 itemSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
